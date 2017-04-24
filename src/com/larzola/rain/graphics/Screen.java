@@ -14,7 +14,7 @@ public class Screen {
 	public void render() {
 		for (int y = 0; y < height; y++) {
 			for(int x = 0; x < width; x++) {
-				pixels[x + y * width] = 0x00ffff; //0x is a prefix for hexadecimal
+				pixels[x + y * width] = 0xff00ff; //0x is a prefix for hexadecimal
 			}
 		}
 	}
