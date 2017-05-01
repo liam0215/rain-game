@@ -37,7 +37,7 @@ public class Screen {
 				int dx = x + xOffset;
 				//if(dx < 0 || dx >= width) break;
 				int tileIndex = ((dx >> 4) & MAP_SIZE_MASK) + ((dy >> 4) & MAP_SIZE_MASK) * MAP_SIZE;
-				pixels[x + y * width] = tiles[tileIndex]; //0x is a prefix for hexadecimal
+				pixels[x + y * width] = Sprite.grass.pixels[(x&15) + (y&15) * Sprite.grass.SIZE];
 			}
 		}
 	}
