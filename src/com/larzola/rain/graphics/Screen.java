@@ -32,12 +32,11 @@ public class Screen {
 	public void render(int xOffset, int yOffset) {
 		for (int y = 0; y < height; y++) {
 			int dy = y + yOffset;
-			//if(dy < 0 || dy >= height) break;
+			if(dy < 0 || dy >= height) continue;
 			for(int x = 0; x < width; x++) {
 				int dx = x + xOffset;
-				//if(dx < 0 || dx >= width) break;
-				int tileIndex = ((dx >> 4) & MAP_SIZE_MASK) + ((dy >> 4) & MAP_SIZE_MASK) * MAP_SIZE;
-				pixels[x + y * width] = Sprite.grass.pixels[(x&15) + (y&15) * Sprite.grass.SIZE];
+				if(dx < 0 || dx >= width) continue;
+				pixels[dx + (dy * width)] = Sprite.grass.pixels[(x&15) + (y&15) * Sprite.grass.SIZE];
 			}
 		}
 	}
