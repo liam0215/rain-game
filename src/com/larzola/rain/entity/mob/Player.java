@@ -1,10 +1,13 @@
 package com.larzola.rain.entity.mob;
 
+import com.larzola.rain.graphics.Screen;
+import com.larzola.rain.graphics.Sprite;
 import com.larzola.rain.input.Keyboard;
 
 public class Player extends Mob{
 
 	private Keyboard input;
+	private Sprite sprite;
 	
 	public Player(int x, int y, Keyboard input) {
 		this.x = x;
@@ -13,17 +16,26 @@ public class Player extends Mob{
 	}
 	
 	public Player(Keyboard input) {
+		sprite = Sprite.player_forward;
 		this.input = input;
 	}
 	
 	public void update() {
-		if(input.up) y--;
-		if(input.down) y++;
-		if(input.left) x--;
-		if(input.right) x++;
+		int xa = 0, ya = 0;
+		if(input.up) ya--;
+		if(input.down) ya++;
+		if(input.left) xa--;
+		if(input.right) xa++;
+		
+		if (xa != 0 || ya != 0) move(xa, ya);
 	}
 	
-	public void render() {
-		
+	public void render(Screen screen) {
+		if(dir == 0) sprite = Sprite.player_forward;
+		if(dir == 1) sprite = Sprite.player_right;
+		if(dir == 2) sprite = Sprite.player_back;
+		if(dir == 3) sprite = Sprite.player_left;
+		screen.renderPlayer(x - 16, y - 16, sprite);
+
 	}
 }
