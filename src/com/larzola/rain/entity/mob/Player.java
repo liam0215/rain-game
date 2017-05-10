@@ -10,6 +10,7 @@ public class Player extends Mob{
 	private Sprite sprite;
 	private int anim = 0;
 	private boolean walking;
+	//test comment
 	
 	public Player(int x, int y, Keyboard input) {
 		this.x = x;
