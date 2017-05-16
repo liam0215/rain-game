@@ -12,6 +12,14 @@ public class Sprite {
 	public static Sprite flower = new Sprite(16, 1, 0, SpriteSheet.tiles);
 	public static Sprite rock = new Sprite(16, 2, 0, SpriteSheet.tiles);
 	
+	//Spawn Level Sprites Here: 
+	public static Sprite spawn_grass = new Sprite(16, 0, 0, SpriteSheet.spawn_level);
+	public static Sprite spawn_flowers = new Sprite(16, 1, 0, SpriteSheet.spawn_level);
+	public static Sprite spawn_rocks = new Sprite(16, 2, 0, SpriteSheet.spawn_level);
+
+	
+	
+	//Player Sprite Here:
 	public static Sprite player_forward = new Sprite(32, 0, 5, SpriteSheet.tiles);	
 	public static Sprite player_back = new Sprite(32, 2, 5, SpriteSheet.tiles);
 	public static Sprite player_side = new Sprite(32, 1, 5, SpriteSheet.tiles);

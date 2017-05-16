@@ -16,6 +16,7 @@ import com.larzola.rain.input.Keyboard;
 import com.larzola.rain.level.Level;
 import com.larzola.rain.level.RandomLevel;
 import com.larzola.rain.level.SpawnLevel;
+import com.larzola.rain.level.TileCoordinate;
 
 public class Game extends Canvas implements Runnable{
 
@@ -44,8 +45,10 @@ public class Game extends Canvas implements Runnable{
 		screen = new Screen(width, height);
 		frame = new JFrame();
 		key = new Keyboard();
-		level = new SpawnLevel("/textures/level.png");
-		player = new Player(6 * 16, 4 *  16, key);
+		level = Level.spawn;
+		TileCoordinate playerSpawn = new TileCoordinate(19, 62);
+		player = new Player(playerSpawn.x() * 16, playerSpawn.y() * 16, key);
+		player.init(level);
 		addKeyListener(key);
 	}
 
